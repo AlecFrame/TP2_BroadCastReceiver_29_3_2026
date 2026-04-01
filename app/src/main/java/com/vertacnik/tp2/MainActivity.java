@@ -33,4 +33,10 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(desbloqueo, new IntentFilter("android.intent.action.USER_PRESENT"));
         super.onResume();
     }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(desbloqueo);
+        super.onPause();
+    }
 }
