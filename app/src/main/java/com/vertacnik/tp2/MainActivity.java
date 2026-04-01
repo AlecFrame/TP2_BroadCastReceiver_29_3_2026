@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (checkSelfPermission(android.Manifest.permission.CALL_PHONE)
                 != PackageManager.PERMISSION_GRANTED) {
-
             requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE}, 1);
         }
     }

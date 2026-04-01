@@ -14,10 +14,10 @@ public class DesbloqueoReceiver extends BroadcastReceiver {
         Toast.makeText(context, "Pantalla desbloqueada detectada", Toast.LENGTH_LONG).show();
         Log.d("DesbloqueoReceiver", "Pantalla desbloqueada detectada");
 
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:2664553747"));
-        callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(callIntent);
+        Intent call = new Intent(Intent.ACTION_CALL);
+        call.setData(Uri.parse("tel:2664553747"));
+        call.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(call);
     }
 
 
