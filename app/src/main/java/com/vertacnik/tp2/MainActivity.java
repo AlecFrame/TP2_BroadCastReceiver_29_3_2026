@@ -1,9 +1,11 @@
 package com.vertacnik.tp2;
 
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,9 +17,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        desbloqueo = new DesbloqueoReceiver();
         super.onCreate(savedInstanceState);
+        desbloqueo = new DesbloqueoReceiver();
         setContentView(R.layout.activity_main);
+
+        if (checkSelfPermission(android.Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE}, 1);
+        }
     }
 
     @Override
